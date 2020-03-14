@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: Lab2IC_SDMC.ServiceTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.527 s <<< FAILURE! - in Lab2IC_SDMC.ServiceTest
+addStudent1(Lab2IC_SDMC.ServiceTest)  Time elapsed: 0.51 s  <<< FAILURE!
+java.lang.AssertionError: expected:<6> but was:<5>
+	at Lab2IC_SDMC.ServiceTest.addStudent1(ServiceTest.java:52)
+
+addStudent2(Lab2IC_SDMC.ServiceTest)  Time elapsed: 0.015 s  <<< FAILURE!
+java.lang.AssertionError: expected:<6> but was:<7>
+	at Lab2IC_SDMC.ServiceTest.addStudent2(ServiceTest.java:70)
+
