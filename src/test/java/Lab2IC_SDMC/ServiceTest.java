@@ -1,6 +1,7 @@
 package Lab2IC_SDMC;
 
 import Lab2IC_SDMC.domain.Student;
+import Lab2IC_SDMC.domain.Tema;
 import Lab2IC_SDMC.repository.NotaXMLRepo;
 import Lab2IC_SDMC.repository.StudentXMLRepo;
 import Lab2IC_SDMC.repository.TemaXMLRepo;
@@ -8,6 +9,7 @@ import Lab2IC_SDMC.service.Service;
 import Lab2IC_SDMC.validation.NotaValidator;
 import Lab2IC_SDMC.validation.StudentValidator;
 import Lab2IC_SDMC.validation.TemaValidator;
+import Lab2IC_SDMC.validation.ValidationException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -49,7 +51,9 @@ public class ServiceTest {
                 .stream(service.getAllStudenti().spliterator(), false)
                 .collect(Collectors.toList());
         int sizeNew = studentiNew.size();
+        service.deleteStudent("1123");
         assertEquals(size + 1, sizeNew);
+
     }
 
     @Test
@@ -68,5 +72,33 @@ public class ServiceTest {
                 .collect(Collectors.toList());
         sizeNew = studenti2.size();
         assertEquals(size, sizeNew);
+    }
+    @Test
+    public void addTema1() {
+        Tema tema = new Tema("123", "O tema frumoasa", 7, 6);
+        int size = 0;
+        List<Tema> teme = StreamSupport.stream(service.getAllTeme().spliterator(), false)
+                .collect(Collectors.toList());
+        size = teme.size();
+
+
+        service.addTema(tema);
+        List<Tema> temeNew = StreamSupport.stream(service.getAllTeme().spliterator(), false)
+                .collect(Collectors.toList());
+        int sizeNew = temeNew.size();
+        service.deleteTema("123");
+        assertEquals(size + 1, sizeNew);
+    }
+
+    @Test(expected = ValidationException.class)
+    public void addTema2() {
+        Tema tema = new Tema("", "O tema frumoasa", 7, 6);
+        int size = 0;
+        List<Tema> teme = StreamSupport.stream(service.getAllTeme().spliterator(), false)
+                .collect(Collectors.toList());
+        size = teme.size();
+
+
+        service.addTema(tema);
     }
 }
