@@ -101,4 +101,45 @@ public class ServiceTest {
 
         service.addTema(tema);
     }
+
+    @Test
+    public void addStudent3() {
+        Student student = new Student("3", "NumePrenume03", 934, "numeprenume3@email.com");
+        int size = 0;
+        List<Student> studenti = StreamSupport
+                .stream(service.getAllStudenti().spliterator(), false)
+                .collect(Collectors.toList());
+        size = studenti.size();
+
+        service.addStudent(student);
+        List<Student> studentiNew = StreamSupport
+                .stream(service.getAllStudenti().spliterator(), false)
+                .collect(Collectors.toList());
+        int sizeNew = studentiNew.size();
+        assertEquals(size + 1, sizeNew);
+    }
+
+    @Test
+    public void addStudent4() {
+        Student student = new Student("4", "NumePrenume04", -934, "nume4@email.com");
+        int size = 0;
+        List<Student> studenti = StreamSupport
+                .stream(service.getAllStudenti().spliterator(), false)
+                .collect(Collectors.toList());
+        size = studenti.size();
+
+        try {
+            service.addStudent(student);
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        int sizeNew = 0;
+        List<Student> studenti2 = StreamSupport
+                .stream(service.getAllStudenti().spliterator(), false)
+                .collect(Collectors.toList());
+        sizeNew = studenti2.size();
+        assertEquals(size, sizeNew);
+    }
 }
