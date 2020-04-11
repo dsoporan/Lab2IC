@@ -104,7 +104,7 @@ public class ServiceTest {
 
     @Test
     public void addStudent3() {
-        Student student = new Student("3", "NumePrenume03", 934, "numeprenume3@email.com");
+        Student student = new Student("30", "NumePrenume03", 934, "numeprenume3@email.com");
         int size = 0;
         List<Student> studenti = StreamSupport
                 .stream(service.getAllStudenti().spliterator(), false)
@@ -135,6 +135,133 @@ public class ServiceTest {
             System.out.println(e.getMessage());
         }
 
+        int sizeNew = 0;
+        List<Student> studenti2 = StreamSupport
+                .stream(service.getAllStudenti().spliterator(), false)
+                .collect(Collectors.toList());
+        sizeNew = studenti2.size();
+        assertEquals(size, sizeNew);
+    }
+
+    @Test
+    public void addStudent5() {
+        Student student = new Student("51", "NumePrenume05", 934, "numeprenume5@email.com");
+        int size = 0;
+        List<Student> studenti = StreamSupport
+                .stream(service.getAllStudenti().spliterator(), false)
+                .collect(Collectors.toList());
+        size = studenti.size();
+
+        service.addStudent(student);
+        List<Student> studentiNew = StreamSupport
+                .stream(service.getAllStudenti().spliterator(), false)
+                .collect(Collectors.toList());
+        int sizeNew = studentiNew.size();
+        assertEquals(size + 1, sizeNew);
+    }
+
+    @Test
+    public void addStudent6() {
+        Student student = new Student("6", "", 934, "nume@email.com");
+        int size = 0;
+        List<Student> studenti = StreamSupport
+                .stream(service.getAllStudenti().spliterator(), false)
+                .collect(Collectors.toList());
+        size = studenti.size();
+
+        try {
+            service.addStudent(student);
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        int sizeNew = 0;
+        List<Student> studenti2 = StreamSupport
+                .stream(service.getAllStudenti().spliterator(), false)
+                .collect(Collectors.toList());
+        sizeNew = studenti2.size();
+        assertEquals(size, sizeNew);
+    }
+
+    @Test
+    public void addStudent7() {
+        Student student = new Student("6", null, 934, "nume@email.com");
+        int size = 0;
+        List<Student> studenti = StreamSupport
+                .stream(service.getAllStudenti().spliterator(), false)
+                .collect(Collectors.toList());
+        size = studenti.size();
+
+        try {
+            service.addStudent(student);
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        int sizeNew = 0;
+        List<Student> studenti2 = StreamSupport
+                .stream(service.getAllStudenti().spliterator(), false)
+                .collect(Collectors.toList());
+        sizeNew = studenti2.size();
+        assertEquals(size, sizeNew);
+    }
+
+    @Test
+    public void addStudent8() {
+        Student student = new Student("8", "NumePrenume08", 934, "numeprenume8@email.com");
+        int size = 0;
+        List<Student> studenti = StreamSupport
+                .stream(service.getAllStudenti().spliterator(), false)
+                .collect(Collectors.toList());
+        size = studenti.size();
+
+        service.addStudent(student);
+        List<Student> studentiNew = StreamSupport
+                .stream(service.getAllStudenti().spliterator(), false)
+                .collect(Collectors.toList());
+        int sizeNew = studentiNew.size();
+        assertEquals(size + 1, sizeNew);
+    }
+
+    @Test
+    public void addStudent9() {
+        Student student = new Student("9", "Nume9", 934, "");
+        int size = 0;
+        List<Student> studenti = StreamSupport
+                .stream(service.getAllStudenti().spliterator(), false)
+                .collect(Collectors.toList());
+        size = studenti.size();
+
+        try {
+            service.addStudent(student);
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        int sizeNew = 0;
+        List<Student> studenti2 = StreamSupport
+                .stream(service.getAllStudenti().spliterator(), false)
+                .collect(Collectors.toList());
+        sizeNew = studenti2.size();
+        assertEquals(size, sizeNew);
+    }
+
+    @Test
+    public void addStudent10() {
+        Student student = new Student("9", "Nume10", 934, null);
+        int size = 0;
+        List<Student> studenti = StreamSupport
+                .stream(service.getAllStudenti().spliterator(), false)
+                .collect(Collectors.toList());
+        size = studenti.size();
+
+        try {
+            service.addStudent(student);
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
         int sizeNew = 0;
         List<Student> studenti2 = StreamSupport
                 .stream(service.getAllStudenti().spliterator(), false)
