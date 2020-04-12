@@ -116,6 +116,8 @@ public class ServiceTest {
                 .stream(service.getAllStudenti().spliterator(), false)
                 .collect(Collectors.toList());
         int sizeNew = studentiNew.size();
+
+
         assertEquals(size + 1, sizeNew);
     }
 
@@ -157,6 +159,7 @@ public class ServiceTest {
                 .stream(service.getAllStudenti().spliterator(), false)
                 .collect(Collectors.toList());
         int sizeNew = studentiNew.size();
+
         assertEquals(size + 1, sizeNew);
     }
 
@@ -221,6 +224,7 @@ public class ServiceTest {
                 .stream(service.getAllStudenti().spliterator(), false)
                 .collect(Collectors.toList());
         int sizeNew = studentiNew.size();
+
         assertEquals(size + 1, sizeNew);
     }
 
@@ -268,5 +272,69 @@ public class ServiceTest {
                 .collect(Collectors.toList());
         sizeNew = studenti2.size();
         assertEquals(size, sizeNew);
+    }
+
+
+
+    @Test(expected = ValidationException.class)
+    public void addTema3() {
+        Tema tema = new Tema("1234", "", 7, 6);
+        int size = 0;
+        List<Tema> teme = StreamSupport.stream(service.getAllTeme().spliterator(), false)
+                .collect(Collectors.toList());
+        size = teme.size();
+
+
+        service.addTema(tema);
+    }
+
+
+    @Test(expected = ValidationException.class)
+    public void addTema4() {
+        Tema tema = new Tema("12345", "O tema frumuoasa", 0, 6);
+        int size = 0;
+        List<Tema> teme = StreamSupport.stream(service.getAllTeme().spliterator(), false)
+                .collect(Collectors.toList());
+        size = teme.size();
+
+
+        service.addTema(tema);
+    }
+
+
+    @Test(expected = ValidationException.class)
+    public void addTema5() {
+        Tema tema = new Tema("12345", "O tema frumuoasa", 20, 6);
+        int size = 0;
+        List<Tema> teme = StreamSupport.stream(service.getAllTeme().spliterator(), false)
+                .collect(Collectors.toList());
+        size = teme.size();
+
+
+        service.addTema(tema);
+    }
+    @Test(expected = ValidationException.class)
+    public void addTema6() {
+        Tema tema = new Tema("12345", "O tema frumuoasa", 1, 0);
+        int size = 0;
+        List<Tema> teme = StreamSupport.stream(service.getAllTeme().spliterator(), false)
+                .collect(Collectors.toList());
+        size = teme.size();
+
+
+        service.addTema(tema);
+    }
+
+
+    @Test(expected = ValidationException.class)
+    public void addTema7() {
+        Tema tema = new Tema("12345", "O tema frumuoasa", 1, 20);
+        int size = 0;
+        List<Tema> teme = StreamSupport.stream(service.getAllTeme().spliterator(), false)
+                .collect(Collectors.toList());
+        size = teme.size();
+
+
+        service.addTema(tema);
     }
 }
