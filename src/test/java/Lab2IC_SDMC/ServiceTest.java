@@ -104,7 +104,7 @@ public class ServiceTest {
 
     @Test
     public void addStudent3() {
-        Student student = new Student("30", "NumePrenume03", 934, "numeprenume3@email.com");
+        Student student = new Student("101", "NumePrenume03", 934, "numeprenume3@email.com");
         int size = 0;
         List<Student> studenti = StreamSupport
                 .stream(service.getAllStudenti().spliterator(), false)
@@ -116,14 +116,14 @@ public class ServiceTest {
                 .stream(service.getAllStudenti().spliterator(), false)
                 .collect(Collectors.toList());
         int sizeNew = studentiNew.size();
-
+        service.deleteStudent("101");
 
         assertEquals(size + 1, sizeNew);
     }
 
     @Test
     public void addStudent4() {
-        Student student = new Student("4", "NumePrenume04", -934, "nume4@email.com");
+        Student student = new Student("102", "NumePrenume04", -934, "nume4@email.com");
         int size = 0;
         List<Student> studenti = StreamSupport
                 .stream(service.getAllStudenti().spliterator(), false)
@@ -147,7 +147,7 @@ public class ServiceTest {
 
     @Test
     public void addStudent5() {
-        Student student = new Student("51", "NumePrenume05", 934, "numeprenume5@email.com");
+        Student student = new Student("103", "NumePrenume05", 934, "numeprenume5@email.com");
         int size = 0;
         List<Student> studenti = StreamSupport
                 .stream(service.getAllStudenti().spliterator(), false)
@@ -159,13 +159,14 @@ public class ServiceTest {
                 .stream(service.getAllStudenti().spliterator(), false)
                 .collect(Collectors.toList());
         int sizeNew = studentiNew.size();
+        service.deleteStudent("103");
 
         assertEquals(size + 1, sizeNew);
     }
 
     @Test
     public void addStudent6() {
-        Student student = new Student("6", "", 934, "nume@email.com");
+        Student student = new Student("104", "", 934, "nume@email.com");
         int size = 0;
         List<Student> studenti = StreamSupport
                 .stream(service.getAllStudenti().spliterator(), false)
@@ -189,7 +190,7 @@ public class ServiceTest {
 
     @Test
     public void addStudent7() {
-        Student student = new Student("6", null, 934, "nume@email.com");
+        Student student = new Student("105", null, 934, "nume@email.com");
         int size = 0;
         List<Student> studenti = StreamSupport
                 .stream(service.getAllStudenti().spliterator(), false)
@@ -212,7 +213,7 @@ public class ServiceTest {
 
     @Test
     public void addStudent8() {
-        Student student = new Student("8", "NumePrenume08", 934, "numeprenume8@email.com");
+        Student student = new Student("106", "NumePrenume08", 934, "numeprenume8@email.com");
         int size = 0;
         List<Student> studenti = StreamSupport
                 .stream(service.getAllStudenti().spliterator(), false)
@@ -224,13 +225,14 @@ public class ServiceTest {
                 .stream(service.getAllStudenti().spliterator(), false)
                 .collect(Collectors.toList());
         int sizeNew = studentiNew.size();
+        service.deleteStudent("106");
 
         assertEquals(size + 1, sizeNew);
     }
 
     @Test
     public void addStudent9() {
-        Student student = new Student("9", "Nume9", 934, "");
+        Student student = new Student("107", "Nume9", 934, "");
         int size = 0;
         List<Student> studenti = StreamSupport
                 .stream(service.getAllStudenti().spliterator(), false)
@@ -253,7 +255,7 @@ public class ServiceTest {
 
     @Test
     public void addStudent10() {
-        Student student = new Student("9", "Nume10", 934, null);
+        Student student = new Student("108", "Nume10", 934, null);
         int size = 0;
         List<Student> studenti = StreamSupport
                 .stream(service.getAllStudenti().spliterator(), false)
