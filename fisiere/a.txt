@@ -34,3 +34,9 @@ Nota: 10.0
 Predata in saptamana: 2
 Deadline: 2
 Feedback: Super
+
+Tema: 1
+Nota: 10.0
+Predata in saptamana: 2
+Deadline: 2
+Feedback: Super

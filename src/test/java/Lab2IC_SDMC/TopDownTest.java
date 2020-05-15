@@ -15,14 +15,13 @@ import org.junit.Test;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 import static org.junit.Assert.assertEquals;
 
-public class BigBangTest {
+public class TopDownTest {
     Service service;
 
     @Before
@@ -57,8 +56,14 @@ public class BigBangTest {
         assertEquals(size + 1, sizeNew);
     }
 
+
     @Test
-    public void addTema() {
+    public void addAssignment(){
+
+
+        addStudent();
+
+
         Tema tema = new Tema("10", "Tema nouaaaaa!!!", 9, 7);
         int size = 0;
         List<Tema> teme = StreamSupport.stream(service.getAllTeme().spliterator(), false)
@@ -74,7 +79,15 @@ public class BigBangTest {
     }
 
     @Test
-    public void addNota(){
+    public void addGrade(){
+
+
+        addStudent();
+
+
+        addAssignment();
+        
+
         LocalDate date = LocalDate.of(2018, Month.OCTOBER, 11);
         Nota nota = new Nota("10", "1", "1", 10.0, date);
         int size = 0;
@@ -89,12 +102,4 @@ public class BigBangTest {
         service.deleteNota("10");
         assertEquals(size + 1, sizeNew);
     }
-
-    @Test
-    public void bigBang(){
-        addStudent();
-        addTema();
-        addNota();
-    }
-
 }
